@@ -1,0 +1,280 @@
+/* --- Global Styles --- */
+:root {
+  --primary-color: #0056b3; /* A deeper, professional blue */
+  --secondary-color: #007bff; /* A brighter blue for accents */
+  --light-gray: #f8f9fa;
+  --dark-gray: #343a40;
+  --text-color: #212529;
+  --white: #ffffff;
+  --border-color: #dee2e6;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  padding: 12px 24px;
+  color: var(--dark-gray);
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.navbar-links a, .navbar-links button {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-size: 1rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.navbar-links a::after, .navbar-links button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after, .navbar-links button:hover::after {
+  width: 100%;
+}
+
+.navbar-links a:hover, .navbar-links button:hover {
+  color: var(--secondary-color);
+}
+
+/* --- Auth Forms --- */
+.auth-container {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 32px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.auth-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+}
+
+.auth-form button {
+  padding: 12px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,86,179,0.3);
+}
+
+/* --- Product Dashboard --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 0; /* Remove padding to let image be flush */
+  text-align: left;
+  overflow: hidden; /* Keep image corners rounded */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-card img {
+  width: 100%; /* Changed from max-width */
+  height: 200px; /* Increased height */
+  object-fit: cover;
+  border-radius: 0; /* No radius, flush with card */
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Container for text content */
+.product-card-content {
+  padding: 20px;
+}
+
+.product-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.product-card .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  background-color: var(--white);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* --- Cart Page --- */
+.cart-item {
+  display: flex;
+  background: var(--white);
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  align-items: center;
+  gap: 25px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cart-item p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.cart-item .price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.cart-total {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: right;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px solid var(--border-color);
+}
