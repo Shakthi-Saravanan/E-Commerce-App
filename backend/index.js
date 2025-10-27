@@ -56,7 +56,8 @@ app.post('/api/login', (req, res) => {
 
 // Get all products
 app.get('/api/products', (req, res) => {
-  db.all("SELECT * FROM products", [], (err, rows) => {
+  const sql = "SELECT id, product_name AS name, price, description, imageUrl FROM products"
+  db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(500).json({ message: "Error fetching products" });
       return;
